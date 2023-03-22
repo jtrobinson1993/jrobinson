@@ -132,6 +132,15 @@ body {
 
 a {
     color: var(--fg);
+    transition: color .3s ease;
+}
+
+svg {
+    transition: fill 1s ease;
+}
+
+path {
+    transition: inherit;
 }
 
 .skip-to-content-link {
@@ -146,4 +155,26 @@ a {
 
 .skip-to-content-link:focus {
     transform: translateY(0%);
+}
+
+.theme-toggle {
+    position: fixed;
+    display: grid;
+    align-content: center;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: var(--bg);
+    border: 1px solid var(--fg);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.theme-toggle__icon {
+    width: 35px;
+    height: auto;
+    fill: var(--fg);
+    transition: none;
 }
