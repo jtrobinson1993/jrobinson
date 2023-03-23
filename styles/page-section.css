@@ -10,19 +10,19 @@
 
 
 .page-section:nth-of-type(4n) {
-    background: rgba(255, 100, 100, .015);
+    background: rgba(255, 100, 100, .025);
 }
 
 .page-section:nth-of-type(4n + 1) {
-    background: rgba(255, 255, 100, .015);
+    background: rgba(255, 255, 100, .025);
 }
 
 .page-section:nth-of-type(4n + 2) {
-    background: rgba(100, 255, 100, .015);
+    background: rgba(100, 255, 100, .025);
 }
 
 .page-section:nth-of-type(4n + 3) {
-    background: rgba(255, 100, 255, .015);
+    background: rgba(255, 100, 255, .025);
 }
 
 .page-section__inner {

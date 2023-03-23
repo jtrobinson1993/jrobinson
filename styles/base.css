@@ -77,6 +77,11 @@ h6 {
     width: 1px;
 }
 
+img {
+    width: auto;
+    height: auto;
+}
+
 /* vars */
 
 html {
@@ -167,7 +172,7 @@ path {
     height: 50px;
     border: none;
     background: var(--bg);
-    border: 1px solid var(--fg);
+    border: 2px solid var(--fg);
     border-radius: 50%;
     cursor: pointer;
 }
