@@ -149,7 +149,8 @@ path {
 }
 
 .skip-to-content-link {
-    background: #e77e23;
+    background: #f5ff3d;
+    color: #000;
     height: 30px;
     left: 50%;
     padding: 8px;
