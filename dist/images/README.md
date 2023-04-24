@@ -1,1 +1,0 @@
-/images directory is output here at build time.
