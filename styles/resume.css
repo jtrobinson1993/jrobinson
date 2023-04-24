@@ -1,0 +1,127 @@
+.resume__container {
+  padding: 15px;
+  line-height: 1;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.resume__container hr {
+  max-width: 320px;
+  width: 100%;
+  margin: 15px auto;
+}
+.resume__container h1 {
+  font-weight: 600;
+  margin: 15px 0;
+  text-align: center;
+  line-height: 1.2;
+}
+.resume__container h1:after {
+  content: '';
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 15px auto;
+  border-bottom: 1px solid var(--fg);
+}
+.resume__container h2 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 30px 0 0.5em;
+  text-align: center;
+}
+@media (min-width: 768px), print {
+  .resume__container h2 {
+    text-align: left;
+ }
+}
+.resume__container p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.resume__container dd {
+  margin: 0;
+}
+.resume__address ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+.resume__address li {
+  margin: 0 15px 5px;
+  font-style: normal;
+}
+.resume__summary {
+  margin: 15px 0;
+}
+.resume__job {
+  clear: both;
+}
+.resume__job ~ .resume__job {
+  margin: 30px 0 0;
+}
+.resume__job-company, .resume__job-title, .resume__job-dates, .resume__job-location {
+  text-align: center;
+}
+@media (min-width: 768px), print {
+  .resume__job-company, .resume__job-title, .resume__job-dates, .resume__job-location {
+    text-align: left;
+ }
+}
+.resume__job-company {
+  font-weight: 600;
+  margin: 0 0 5px;
+}
+@media (min-width: 768px), print {
+  .resume__job-company {
+    float: left;
+    margin: 0 15px 0 0;
+ }
+}
+@media (min-width: 768px), print {
+  .resume__job-title {
+    float: left;
+    clear: left;
+ }
+  .resume__job-dates, .resume__job-location {
+    float: right;
+    margin: 0 0 0 auto;
+ }
+  .resume__job-title, .resume__job-location {
+    margin: 7px 0 15px;
+ }
+}
+.resume__job-duties {
+  clear: both;
+  margin: 15px 0 0;
+  line-height: 1.2;
+}
+.resume__job-duty {
+  margin: 0;
+}
+.resume__job-duty + .resume__job-duty {
+  margin: 5px 0 0;
+}
+
+@media print {
+  .theme-toggle {
+    display: none;
+  }
+  html {
+    color: #000;
+  }
+  .resume__address li a {
+    text-decoration: none;
+    color: #000;
+  }
+  .resume__container h1:after {
+    content: '';
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 15px auto;
+    border-bottom: 1px solid #000;
+  }
+}
