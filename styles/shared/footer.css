@@ -1,10 +1,8 @@
-.site-footer__container {
-
-}
+.site-footer__container {}
 
 .site-footer__inner {
-    max-width: var(--content-width);
-    margin: 0 auto;
-    text-align: center;
-    padding: 60px 30px;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  text-align: center;
+  padding: 60px 30px;
 }
