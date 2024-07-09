@@ -1,18 +1,17 @@
 @property --hue {
   syntax: '<number>';
   inherits: true;
-  initial-value: 0;
+  initial-value: 300;
 }
 
 @keyframes scroll-watcher {
-  to { --hue: 360 }
+  to { --hue: 780 }
 }
 
 .page-section {
-  --hue: 0;
+  --hue: 300;
   --section-color-1: rgba(100, 154, 255, 0.075);
   --section-color-2: rgba(146, 255, 100, 0.075);
-  --step: 64; /* roughly (255 / 4) */
   background: linear-gradient(to right, var(--section-color-1), var(--section-color-2));
   @supports (color: hsl(from white h s l)) {
     background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l), hsl(from var(--section-color-2) mod(h + var(--hue), 360) s l));
@@ -21,10 +20,13 @@
   border-top: 1px solid var(--bg);
   animation: scroll-watcher linear;
   animation-timeline: scroll();
+  @prefers-reduced-motion {
+    animation: none;
+  }
 }
 
 .light .page-section {
-  background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l), hsl(from var(--section-color-2)  mod(h + var(--hue), 360) s l));
+  background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l / calc(alpha * 1.2)), hsl(from var(--section-color-2)  mod(h + var(--hue), 360) s l / calc(alpha * 1.2)));
 }
 
 .page-section:nth-of-type(4n + 2) {
