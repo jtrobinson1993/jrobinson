@@ -50,13 +50,13 @@
             <div class="image-grid__image-container">
               <img width="132" height="132" src="./images/html5.webp" alt="" />
             </div>
-            <span class="image-grid__label"><abbr title="HyperText Markup Language">HTML</abbr> 5</span>
+            <span class="image-grid__label"><abbr title="HyperText Markup Language">HTML</abbr></span>
           </div>
           <div class="image-grid__item">
             <div class="image-grid__image-container">
               <img width="132" height="132" src="./images/css3.webp" alt="" />
             </div>
-            <span class="image-grid__label"><abbr title="Cascading Style Sheets">CSS</abbr> 3</span>
+            <span class="image-grid__label"><abbr title="Cascading Style Sheets">CSS</abbr></span>
           </div>
           <div class="image-grid__item">
             <div class="image-grid__image-container">
@@ -128,15 +128,43 @@
     <section class="page-section" aria-labelledby="portfolio-heading" id="portfolio">
       <div class="page-section__inner">
         <h2 id="portfolio-heading">portfolio</h2>
-        <p>Under Construction</p>
+        <div class="portfolio__container">
+          <article class="portfolio__item">
+            <h3>pokédex</h3>
+            <div class="portfolio__image">
+              <img src="./images/portfolio/pokedex.webp" alt="" />
+            </div>
+            <div class="portfolio__description">
+              <p>I wanted to learn the basics of React, and a friend recommended I use the PokéAPI to make a Pokédex. I
+                liked the idea of it from a design perspective, and it was simple enough functionally that it wouldn't
+                take too long. I'm starting with a handful of milestones:</p>
+              <ol>
+                <li>Complete the basic functionality of the main Pokédex body in react, and a basic 2D design using only
+                  HTML and CSS. (Completed)</li>
+                <li>Add the Pokédex's door with additional buttons and functionality (save favorites, name display,
+                  power up / down sequence, etc.) (In progress)</li>
+                <li>Stretch goal. Make the entire Pokédex 3D using only HTML / CSS. Use JavaScript to track mouse
+                  position. Pass those values to CSS custom properties to rotate the Pokédex. (Upcoming)</li>
+              </ol>
+              <h4>project focus</h4>
+              <ul class="portfolio__item-skills">
+                <li><a href="https://react.dev/"><img src='./images/react.webp' alt='' /></a><span>React</span></li>
+                <li><a href="https://tanstack.com/query/latest"><img src='./images/tanstack.webp' alt='' /></a><span>TanStack Query</span>
+                </li>
+                <li><a href="https://react.dev/"><img src='./images/css3.webp' alt='' /></a><span>New and Advanced <abbr
+                      title="Cascasing Stylesheet">CSS</abbr> Features</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
     <footer class="site-footer__container">
       <div class="site-footer__inner">
-        Nothing fancy needed. Built with HTML, CSS, and a touch of JavaScript. Hosted on <a
+        Built with with basics, because that's all I needed. HTML, CSS, and a touch of JavaScript. Hosted on <a
           href="https://www.netlify.com/">Netlify</a>.
-          <br />
-          <a href="https://old.jrobinson.dev">Old website</a>.
+        <br />
+        <a href="https://old.jrobinson.dev">Old website</a>.
       </div>
     </footer>
   </main>

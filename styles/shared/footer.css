@@ -1,4 +1,6 @@
-.site-footer__container {}
+.site-footer__container {
+  border-top: 1px solid var(--bg);
+}
 
 .site-footer__inner {
   max-width: var(--content-width);
