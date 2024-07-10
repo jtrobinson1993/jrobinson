@@ -84,6 +84,17 @@ img {
 }
 
 /* vars */
+@property --bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #151520;
+};
+
+@property --fg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #efeff5;
+};
 
 html {
   --bg: #151520;
@@ -91,7 +102,7 @@ html {
   --content-width: 960px;
   background: var(--bg);
   color: var(--fg);
-  transition: background-color .3s ease, color .3s ease;
+  transition: --bg .5s ease, --fg .5s ease;
 }
 
 body {
@@ -140,15 +151,6 @@ body {
 
 a {
   color: var(--fg);
-  transition: color .3s ease;
-}
-
-svg {
-  transition: fill 1s ease;
-}
-
-path {
-  transition: inherit;
 }
 
 .skip-to-content-link {

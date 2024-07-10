@@ -1,85 +1,108 @@
+@property --hue {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 300;
+}
+
+@keyframes scroll-watcher {
+  to { --hue: 600 } /* increase to speed up gradient animation */
+}
+
 .page-section {
-    margin: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.25);
-    transition: color .3s ease;
+  --hue: 300;
+  --section-color-1: rgba(100, 154, 255, 0.065);
+  --section-color-2: rgba(146, 255, 100, 0.065);
+  background: linear-gradient(to right, var(--section-color-1), var(--section-color-2));
+  @supports (color: hsl(from white h s l)) and (animation-timeline: scroll()) {
+    background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l), hsl(from var(--section-color-2) mod(h + var(--hue), 360) s l));
+    animation: scroll-watcher linear;
+    animation-timeline: scroll();
+  }
+  margin: 0;
+  border-top: 1px solid var(--bg);
+  
+  @prefers-reduced-motion {
+    animation: none;
+  }
 }
 
-.page-section:last-of-type {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-
-.page-section:nth-of-type(4n) {
-    background: rgba(255, 100, 100, .025);
-}
-
-.page-section:nth-of-type(4n + 1) {
-    background: rgba(100, 100, 255, .025);
+.light .page-section {
+  background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l / calc(alpha * 1.33)), hsl(from var(--section-color-2)  mod(h + var(--hue), 360) s l / calc(alpha * 1.33)));
 }
 
 .page-section:nth-of-type(4n + 2) {
-    background: rgba(100, 255, 100, .025);
+  --section-color-1: rgba(177, 255, 100, 0.075);
+  --section-color-2: rgba(255, 227, 100, 0.075);
 }
 
 .page-section:nth-of-type(4n + 3) {
-    background: rgba(255, 100, 255, .025);
+  --section-color-1: rgba(255, 167, 100, 0.075);
+  --section-color-2: rgba(255, 100, 139, 0.075);
+}
+
+.page-section:nth-of-type(4n + 4) {
+  --section-color-1: rgba(255, 100, 214, 0.075);
+  --section-color-2: rgba(126, 100, 255, 0.075);
 }
 
 .page-section__inner {
-    padding: 10svh 30px;
-    width: 100%;
-    max-width: var(--content-width);
-    margin: 0 auto;
+  padding: 10svh 30px;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
 }
 
 .page-section h2 {
-    font-size: clamp(2.25rem, calc(1.75rem + 2.25vw), 4rem);
-    line-height: 1;
-    margin: 0 0 .67em;
+  font-size: clamp(2.25rem, calc(1.75rem + 2.25vw), 4rem);
+  line-height: 1;
+  margin: 0 0 .67em;
 }
 
 .page-section {
-    font-size: clamp(1.125rem, calc(1rem + .5vw), 1.5rem);
+  font-size: clamp(1.125rem, calc(1rem + .5vw), 1.5rem);
 }
 
 .image-grid__container {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 60px;
+  row-gap: 30px;
+
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 45px;
+    row-gap: 30px;
+    padding: 0;
+  }
+  
+  @media (min-width: 540px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 45px;
+    row-gap: 30px;
+  }
+  
+  @media (min-width: 760px) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  
+  @media (min-width: 940px) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
-@media (min-width: 480px) {
-    .image-grid__container {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 45px;
-    }
-}
-
-@media (min-width: 640px) {
-    .image-grid__container {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 60px;
-    }
-}
-
-@media (min-width: 860px) {
-    .image-grid__container {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-    }
 }
 
 .image-grid__item {
-    text-align: center;
-    line-height: 1.4;
+  text-align: center;
+  line-height: 1.4;
 }
 
 .image-grid__image-container {
-    aspect-ratio: 1;
-    display: grid;
-    align-content: center;
+  aspect-ratio: 1;
+  display: grid;
+  align-content: center;
 }
 
 .image-grid__label {
-    display: inline-block;
-    margin: .33em 0 0;
+  display: inline-block;
+  margin: .33em 0 0;
 }
