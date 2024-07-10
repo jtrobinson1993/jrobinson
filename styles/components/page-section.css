@@ -13,15 +13,14 @@
   --section-color-1: rgba(100, 154, 255, 0.065);
   --section-color-2: rgba(146, 255, 100, 0.065);
   background: linear-gradient(to right, var(--section-color-1), var(--section-color-2));
-  @supports (color: hsl(from white h s l)) {
+  @supports (color: hsl(from white h s l)) and (animation-timeline: scroll()) {
     background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l), hsl(from var(--section-color-2) mod(h + var(--hue), 360) s l));
-  }
-  margin: 0;
-  border-top: 1px solid var(--bg);
-  @supports (animation-timeline: scroll()) {
     animation: scroll-watcher linear;
     animation-timeline: scroll();
   }
+  margin: 0;
+  border-top: 1px solid var(--bg);
+  
   @prefers-reduced-motion {
     animation: none;
   }
