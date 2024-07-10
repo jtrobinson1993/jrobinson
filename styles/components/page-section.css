@@ -5,7 +5,7 @@
 }
 
 @keyframes scroll-watcher {
-  to { --hue: 780 }
+  to { --hue: 600 } /* increase to speed up gradient animation */
 }
 
 .page-section {
