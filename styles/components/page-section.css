@@ -18,8 +18,10 @@
   }
   margin: 0;
   border-top: 1px solid var(--bg);
-  animation: scroll-watcher linear;
-  animation-timeline: scroll();
+  @supports (animation-timeline: scroll()) {
+    animation: scroll-watcher linear;
+    animation-timeline: scroll();
+  }
   @prefers-reduced-motion {
     animation: none;
   }
