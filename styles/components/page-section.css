@@ -10,8 +10,8 @@
 
 .page-section {
   --hue: 300;
-  --section-color-1: rgba(100, 154, 255, 0.075);
-  --section-color-2: rgba(146, 255, 100, 0.075);
+  --section-color-1: rgba(100, 154, 255, 0.065);
+  --section-color-2: rgba(146, 255, 100, 0.065);
   background: linear-gradient(to right, var(--section-color-1), var(--section-color-2));
   @supports (color: hsl(from white h s l)) {
     background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l), hsl(from var(--section-color-2) mod(h + var(--hue), 360) s l));
@@ -26,7 +26,7 @@
 }
 
 .light .page-section {
-  background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l / calc(alpha * 1.2)), hsl(from var(--section-color-2)  mod(h + var(--hue), 360) s l / calc(alpha * 1.2)));
+  background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l / calc(alpha * 1.33)), hsl(from var(--section-color-2)  mod(h + var(--hue), 360) s l / calc(alpha * 1.33)));
 }
 
 .page-section:nth-of-type(4n + 2) {
@@ -63,22 +63,31 @@
 
 .image-grid__container {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 30px;
-}
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 60px;
+  row-gap: 30px;
 
-@media (min-width: 540px) {
-  .image-grid__container {
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 45px;
+    row-gap: 30px;
+    padding: 0;
+  }
+  
+  @media (min-width: 540px) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 45px;
+    column-gap: 45px;
+    row-gap: 30px;
   }
+  
+  @media (min-width: 760px) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  
+  @media (min-width: 940px) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
-@media (min-width: 720px) {
-  .image-grid__container {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 60px;
-  }
 }
 
 .image-grid__item {

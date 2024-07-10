@@ -1,0 +1,132 @@
+.portfolio__container {
+
+}
+
+.portfolio__item {
+  --border-radius: 15px;
+  position: relative;
+  background: rgba(255,255,255,0.0075) linear-gradient(135deg, rgba(255,255,255,0.033), rgba(255,255,255,0) 30%);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 1px 1px 15px rgba(0,0,0,0.125);
+  border-top: 2px solid;
+  outline: 1px solid rgba(255,255,255,.1);
+  outline-offset: -2px;
+  border-image-slice: 1;
+  border-image-source: 
+    linear-gradient(
+      to right, 
+      rgba(255,255,255,0),
+      rgba(255,255,255,0) calc(var(--border-radius) + .5px),
+      rgba(255,255,255,0.15) calc(var(--border-radius) + .5px), 
+      rgba(255,255,255,0) 350px
+    );
+  transition: box-shadow .5s ease;
+  @media (width >= 960px) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    flex-wrap: wrap;
+    column-gap: 45px;
+    row-gap: 30px;
+    
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -2px;
+    pointer-events: none;
+    height: var(--border-radius);
+    width: var(--border-radius);
+    border-left: 2px solid rgba(255,255,255,0.15);
+    border-top: 2px solid rgba(255,255,255,0.15);
+    border-top-left-radius: var(--border-radius);
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: -1.5px;
+    height: 350px;
+    width: 1px;
+    border: 1px solid;
+    border-image-slice: 1;
+    border-image-source: 
+      linear-gradient(
+        to bottom, 
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) var(--border-radius),
+        rgba(255,255,255,0.15) var(--border-radius), 
+        rgba(255,255,255,0) 350px
+      );
+  }
+
+  h3 {
+    font-size: clamp(1.75rem, calc(1rem + 2vw), 3rem);
+    line-height: 1;
+    margin: 0;
+    margin-top: 30px;
+
+    @media (width >= 960px) {
+      margin-top: 0;
+    }
+  }
+}
+
+.light .portfolio__item {
+  box-shadow: 1px 1px 15px rgba(0,0,0,0.033);
+}
+
+.portfolio__image {
+  display: grid;
+  place-content: center;
+  aspect-ratio: 2 / 1;
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  @media (width >= 960px) {
+    place-content: start;
+    aspect-ratio: initial;
+    max-height: none;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.portfolio__details {
+  
+  @media (width >= 960px) {
+    
+  }
+}
+
+.portfolio__skills {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  list-style: none;
+  margin: 15px 0;
+  padding: 0;
+  font-size: 1rem;
+  text-align: center;
+  
+  @media (width >= 640px) {
+    grid-template-columns: repeat(8, 1fr);
+    
+  }
+}
+
+.portfolio__description {
+  font-size: 1.125rem;
+
+  @media (width >= 920px) {
+    font-size: 1.25rem;
+    grid-column: span 2;
+  }
+}
