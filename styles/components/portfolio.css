@@ -18,7 +18,7 @@
       to right, 
       rgba(255,255,255,0),
       rgba(255,255,255,0) calc(var(--border-radius) + .5px),
-      rgba(255,255,255,0.15) calc(var(--border-radius) + .5px), 
+      rgba(255,255,255,0.2) calc(var(--border-radius) + .5px), 
       rgba(255,255,255,0) 350px
     );
   transition: box-shadow .5s ease;
@@ -26,8 +26,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     flex-wrap: wrap;
-    column-gap: 45px;
-    row-gap: 30px;
+    gap: 30px
     
   }
 
@@ -39,8 +38,8 @@
     pointer-events: none;
     height: var(--border-radius);
     width: var(--border-radius);
-    border-left: 2px solid rgba(255,255,255,0.15);
-    border-top: 2px solid rgba(255,255,255,0.15);
+    border-left: 2px solid rgba(255,255,255,0.2);
+    border-top: 2px solid rgba(255,255,255,0.2);
     border-top-left-radius: var(--border-radius);
   }
 
@@ -59,7 +58,7 @@
         to bottom, 
         rgba(255,255,255,0),
         rgba(255,255,255,0) var(--border-radius),
-        rgba(255,255,255,0.15) var(--border-radius), 
+        rgba(255,255,255,0.2) var(--border-radius), 
         rgba(255,255,255,0) 350px
       );
   }
