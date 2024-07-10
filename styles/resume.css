@@ -1,3 +1,7 @@
+html {
+  /* background: var(--bg); */
+}
+
 .resume__container {
   padding: 15px;
   line-height: 1;
