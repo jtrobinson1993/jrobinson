@@ -32,6 +32,7 @@ html {
   line-height: 1.2;
   margin: 30px 0 0.5em;
   text-align: center;
+  clear: both;
 }
 @media (min-width: 768px), print {
   .resume__container h2 {
@@ -59,9 +60,16 @@ html {
 }
 .resume__summary {
   margin: 15px 0;
+  text-align: center;
 }
 .resume__job {
   clear: both;
+
+  &:after {
+    display: block;
+    content: '';
+    clear: both;
+  }
 }
 .resume__job ~ .resume__job {
   margin: 30px 0 0;
