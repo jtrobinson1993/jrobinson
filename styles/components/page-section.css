@@ -34,11 +34,11 @@
   }
 
   @supports (color: hsl(from white h s l)) and (animation-timeline: scroll()) {
-    /* animation: scroll-watcher linear;
+    animation: scroll-watcher linear;
     animation-timeline: scroll();
     &:before {
       background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l), hsl(from var(--section-color-2) mod(h + var(--hue), 360) s l));
-    } */
+    }
   }
 
   @prefers-reduced-motion {
