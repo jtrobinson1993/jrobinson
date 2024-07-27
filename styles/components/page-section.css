@@ -34,11 +34,11 @@
   }
 
   @supports (color: hsl(from white h s l)) and (animation-timeline: scroll()) {
-    animation: scroll-watcher linear;
+    /* animation: scroll-watcher linear;
     animation-timeline: scroll();
     &:before {
       background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l), hsl(from var(--section-color-2) mod(h + var(--hue), 360) s l));
-    }
+    } */
   }
 
   @prefers-reduced-motion {
@@ -55,13 +55,21 @@
 }
 
 .page-section:nth-child(3n + 2) {
-  --section-color-1: hsla(from var(--initial-color-1) mod(h + 120, 360) s l);
-  --section-color-2: hsla(from var(--initial-color-2) mod(h + 120, 360) s l);
+  --section-color-1: color(srgb 1 0.513726 0.611765);
+  --section-color-2: color(srgb 0.917647 0.439216 1);
+  @supports (color: hsl(from white h s l)) and (animation-timeline: scroll()) {
+    --section-color-1: hsla(from var(--initial-color-1) mod(h + 120, 360) s l);
+    --section-color-2: hsla(from var(--initial-color-2) mod(h + 120, 360) s l);
+  }
 }
 
 .page-section:nth-child(3n + 3) {
-  --section-color-1: hsla(from var(--initial-color-1) mod(h + 240, 360) s l);
-  --section-color-2: hsla(from var(--initial-color-2) mod(h + 240, 360) s l);
+  --section-color-1: color(srgb 0.611765 1 0.513726);
+  --section-color-2: color(srgb 1 0.917647 0.439216);
+  @supports (color: hsl(from white h s l)) and (animation-timeline: scroll()) {
+    --section-color-1: hsla(from var(--initial-color-1) mod(h + 240, 360) s l);
+    --section-color-2: hsla(from var(--initial-color-2) mod(h + 240, 360) s l);
+  }
 }
 
 
