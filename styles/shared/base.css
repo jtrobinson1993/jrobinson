@@ -9,12 +9,12 @@
 @property --fg {
   syntax: "<color>";
   inherits: true;
-  initial-value: #efeff5;
+  initial-value: #f5f5ff;
 };
 
 html {
   --bg: #151520;
-  --fg: #efeff5;
+  --fg: #f5f5ff;
   --content-width: 960px;
   background: var(--bg);
   color: var(--fg);
@@ -33,24 +33,24 @@ p+p {
 @media (prefers-color-scheme: dark) {
   html {
     --bg: #151520;
-    --fg: #efeff5;
+    --fg: #f5f5ff;
   }
 }
 
 html.dark {
   --bg: #151520;
-  --fg: #efeff5;
+  --fg: #f5f5ff;
 }
 
 @media (prefers-color-scheme: light) {
   html {
-    --bg: #efeff5;
+    --bg: #f5f5ff;
     --fg: #151520;
   }
 }
 
 html.light {
-  --bg: #efeff5;
+  --bg: #f5f5ff;
   --fg: #151520;
 }
 
@@ -97,6 +97,7 @@ a {
   border: 2px solid var(--fg);
   border-radius: 50%;
   cursor: pointer;
+  z-index: 999;
 }
 
 .theme-toggle__icon {

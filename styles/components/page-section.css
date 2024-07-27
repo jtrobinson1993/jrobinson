@@ -10,40 +10,52 @@
 
 .page-section {
   --hue: 300;
-  --section-color-1: rgba(100, 154, 255, 0.065);
-  --section-color-2: rgba(146, 255, 100, 0.065);
-  background: linear-gradient(to right, var(--section-color-1), var(--section-color-2));
-  @supports (color: hsl(from white h s l)) and (animation-timeline: scroll()) {
-    background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l), hsl(from var(--section-color-2) mod(h + var(--hue), 360) s l));
-    animation: scroll-watcher linear;
-    animation-timeline: scroll();
-  }
+  --initial-color-1: rgb(131, 156, 255);
+  --initial-color-2: rgb(112, 255, 234);
+  --section-color-1: var(--initial-color-1);
+  --section-color-2: var(--initial-color-2);
+  animation: scroll-watcher linear;
+  animation-timeline: scroll();
+  position: relative;
+  
   margin: 0;
   border-top: 1px solid var(--bg);
-  
+
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    opacity: .08;
+    z-index: -1;
+    background: linear-gradient(to right, var(--section-color-1), var(--section-color-2));
+    transition: opacity .15s ease;
+  }
+
+  @supports (color: hsl(from white h s l)) and (animation-timeline: scroll()) {
+    animation: scroll-watcher linear;
+    animation-timeline: scroll();
+    &:before {
+      background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l), hsl(from var(--section-color-2) mod(h + var(--hue), 360) s l));
+    }
+  }
+
   @prefers-reduced-motion {
     animation: none;
   }
 }
 
-.light .page-section {
-  background: linear-gradient(to right, hsl(from var(--section-color-1) mod(h + var(--hue), 360) s l / calc(alpha * 1.33)), hsl(from var(--section-color-2)  mod(h + var(--hue), 360) s l / calc(alpha * 1.33)));
+.page-section:nth-child(3n + 2) {
+  --section-color-1: hsla(from var(--initial-color-1) mod(h + 120, 360) s l);
+  --section-color-2: hsla(from var(--initial-color-2) mod(h + 120, 360) s l);
 }
 
-.page-section:nth-of-type(4n + 2) {
-  --section-color-1: rgba(177, 255, 100, 0.075);
-  --section-color-2: rgba(255, 227, 100, 0.075);
+.page-section:nth-child(3n + 3) {
+  --section-color-1: hsla(from var(--initial-color-1) mod(h + 240, 360) s l);
+  --section-color-2: hsla(from var(--initial-color-2) mod(h + 240, 360) s l);
 }
 
-.page-section:nth-of-type(4n + 3) {
-  --section-color-1: rgba(255, 167, 100, 0.075);
-  --section-color-2: rgba(255, 100, 139, 0.075);
-}
-
-.page-section:nth-of-type(4n + 4) {
-  --section-color-1: rgba(255, 100, 214, 0.075);
-  --section-color-2: rgba(126, 100, 255, 0.075);
-}
 
 .page-section__inner {
   padding: 10svh 30px;
@@ -92,14 +104,41 @@
 }
 
 .image-grid__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   line-height: 1.4;
+  & img, & svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+    filter: drop-shadow(4px 3px 6px rgba(0, 0, 0, .35));
+    transition: filter .15s ease;
+  }
+}
+
+.light .image-grid__item {
+  & img, & svg {
+    filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.15));
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .image-grid__item {
+    & img, & svg {
+      filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.15));
+    }
+  }
 }
 
 .image-grid__image-container {
+  position: relative;
   aspect-ratio: 1;
   display: grid;
   align-content: center;
+  width: 100%;
 }
 
 .image-grid__label {
