@@ -46,6 +46,14 @@
   }
 }
 
+.page-section__foot-note {
+  display: block;
+  padding: 30px;
+  margin: 30px 0 0;
+  font-size: .875em;
+  text-align: center;
+}
+
 .page-section:nth-child(3n + 2) {
   --section-color-1: hsla(from var(--initial-color-1) mod(h + 120, 360) s l);
   --section-color-2: hsla(from var(--initial-color-2) mod(h + 120, 360) s l);
