@@ -45,17 +45,15 @@ import "@/styles/shared/base.css";
 
 <script>
   const htmlElem = document.querySelectorAll("html")[0];
-  console.log(htmlElem);
+
   function toggleTheme() {
     if (!htmlElem) return;
     if (
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
-      console.log(1);
       htmlElem.classList.add("dark");
     } else {
-      console.log(2);
       htmlElem.classList.add("light");
     }
 
@@ -63,11 +61,9 @@ import "@/styles/shared/base.css";
     if (!toggle) return;
     toggle.addEventListener("click", () => {
       if (htmlElem.classList.contains("dark")) {
-        console.log(3);
         htmlElem.classList.remove("dark");
         htmlElem.classList.add("light");
       } else if (htmlElem.classList.contains("light")) {
-        console.log(4);
         htmlElem.classList.remove("light");
         htmlElem.classList.add("dark");
       }
