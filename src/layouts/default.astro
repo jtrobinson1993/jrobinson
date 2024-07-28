@@ -1,35 +1,73 @@
 ---
-import "@/styles/shared/base.css"
+import "@/styles/shared/base.css";
 ---
-<!DOCTYPE html>
-<html lang="en">
-  
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jarrod Robinson | Frontend Engineer</title>
-    <meta name="description"
-    content="Frontend engineer based in Lincoln, Nebraska. I believe in a focus on user experience and accessibility.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Megrim&display=swap"
-    as="style" onload="this.onload=null;this.rel='stylesheet'">
-  </head>
-<body>
-  <a href="#main-content" class="skip-to-content-link">Skip to Content</a>
-  <header class="page-header">
-    <button class="theme-toggle"><span class="visually-hidden">Toggle Visual Theme</span><svg
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" class="theme-toggle__icon">
-        <path
-          d="M480 936q-150 0-255-105T120 576q0-150 105-255t255-105q8 0 17 .5t23 1.5q-36 32-56 79t-20 99q0 90 63 153t153 63q52 0 99-18.5t79-51.5q1 12 1.5 19.5t.5 14.5q0 150-105 255T480 936Zm0-60q109 0 190-67.5T771 650q-25 11-53.667 16.5Q688.667 672 660 672q-114.689 0-195.345-80.655Q384 510.689 384 396q0-24 5-51.5t18-62.5q-98 27-162.5 109.5T180 576q0 125 87.5 212.5T480 876Zm-4-297Z" />
-      </svg>
-    </button>
-    <slot name="header" />
-  </header>
-  <main id="main-content">
-    <slot />
-  </main>
-  <script type="module" src="@/script/main.ts"></script>
-</body>
 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jarrod Robinson | Frontend Engineer</title>
+    <meta
+      name="description"
+      content="Frontend engineer based in Lincoln, Nebraska. I believe in a focus on user experience and accessibility."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Megrim&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-to-content-link">Skip to Content</a>
+    <header class="page-header">
+      <button class="theme-toggle"
+        ><span class="visually-hidden">Toggle Visual Theme</span><svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 96 960 960"
+          class="theme-toggle__icon"
+        >
+          <path
+            d="M480 936q-150 0-255-105T120 576q0-150 105-255t255-105q8 0 17 .5t23 1.5q-36 32-56 79t-20 99q0 90 63 153t153 63q52 0 99-18.5t79-51.5q1 12 1.5 19.5t.5 14.5q0 150-105 255T480 936Zm0-60q109 0 190-67.5T771 650q-25 11-53.667 16.5Q688.667 672 660 672q-114.689 0-195.345-80.655Q384 510.689 384 396q0-24 5-51.5t18-62.5q-98 27-162.5 109.5T180 576q0 125 87.5 212.5T480 876Zm-4-297Z"
+          ></path>
+        </svg>
+      </button>
+      <slot name="header" />
+    </header>
+    <main id="main-content">
+      <slot />
+    </main>
+  </body>
 </html>
+
+<script>
+  const htmlElem = document.querySelectorAll("html")[0];
+
+  function toggleTheme() {
+    if (!htmlElem) return;
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      htmlElem.classList.add("dark");
+    } else {
+      htmlElem.classList.add("light");
+    }
+
+    const toggle = document.querySelectorAll(".theme-toggle")[0];
+    if (!toggle) return;
+    toggle.addEventListener("click", () => {
+      if (htmlElem.classList.contains("dark")) {
+        htmlElem.classList.remove("dark");
+        htmlElem.classList.add("light");
+      } else if (htmlElem.classList.contains("light")) {
+        htmlElem.classList.remove("light");
+        htmlElem.classList.add("dark");
+      }
+    });
+  }
+  toggleTheme();
+</script>
