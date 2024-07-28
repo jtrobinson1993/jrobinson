@@ -1,0 +1,176 @@
+---
+import DefaultLayout from "@/layouts/default.astro";
+import { getCollection } from "astro:content";
+import "@/styles/index.css";
+const skills = await getCollection("skills");
+
+skills.sort((a, b) => {
+  const nameA = a.data.title.toUpperCase(); // ignore upper and lowercase
+  const nameB = b.data.title.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  // names must be equal
+  return 0;
+});
+---
+
+<DefaultLayout>
+  <header class="page-header" slot="header">
+    <button class="theme-toggle"
+      ><span class="visually-hidden">Toggle Visual Theme</span><svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 96 960 960"
+        class="theme-toggle__icon"
+      >
+        <path
+          d="M480 936q-150 0-255-105T120 576q0-150 105-255t255-105q8 0 17 .5t23 1.5q-36 32-56 79t-20 99q0 90 63 153t153 63q52 0 99-18.5t79-51.5q1 12 1.5 19.5t.5 14.5q0 150-105 255T480 936Zm0-60q109 0 190-67.5T771 650q-25 11-53.667 16.5Q688.667 672 660 672q-114.689 0-195.345-80.655Q384 510.689 384 396q0-24 5-51.5t18-62.5q-98 27-162.5 109.5T180 576q0 125 87.5 212.5T480 876Zm-4-297Z"
+        ></path>
+      </svg></button
+    >
+    <h1><a href="/">jarrod robinson</a></h1>
+    <span class="title"><span>frontend</span> <span>engineer</span></span>
+    <nav class="main-menu">
+      <ul>
+        <li><a href="#me">me</a></li>
+        <li><a href="#skills">skills</a></li>
+        <!-- <li><a href="#history">history</a></li> -->
+        <li><a href="#portfolio">portfolio</a></li>
+      </ul>
+    </nav>
+    <a href="#main-content" class="scroll-indicator"
+      ><span class="visually-hidden">scroll to see content</span></a
+    >
+  </header>
+  <main id="main-content">
+    <section class="page-section" aria-labelledby="me-heading" id="me">
+      <div class="page-section__inner">
+        <h2 id="me-heading">me</h2>
+        <p>
+          10+ years in web development and design. I really like CSS. User
+          experience and accessibility should be at the heart of design.
+          Developer experience is <em>almost</em> as important.
+        </p>
+      </div>
+    </section>
+    <section class="page-section" aria-labelledby="skills-heading" id="skills">
+      <div class="page-section__inner">
+        <h2 id="skills-heading">skills</h2>
+        <div class="image-grid__container">
+          {
+            skills.map((skill) => {
+              const img = skill.data.image ? (
+                <img
+                  width="132"
+                  height="132"
+                  src={skill.data.image}
+                  loading="lazy"
+                  alt=""
+                />
+              ) : undefined;
+              const title = skill.data.expanded ? (
+                <abbr title={skill.data.expanded}>{skill.data.title}</abbr>
+              ) : (
+                skill.data.title
+              );
+              return (
+                <div class="image-grid__item">
+                  <div
+                    class="image-grid__image-container"
+                    set:html={img ? img : skill.data.svg}
+                  />
+                  <span class="image-grid__label">{title}</span>
+                </div>
+              );
+            })
+          }
+        </div>
+        <div class="page-section__foot-note">
+          ...and many more related technologies
+        </div>
+      </div>
+    </section>
+    <section
+      class="page-section"
+      aria-labelledby="portfolio-heading"
+      id="portfolio"
+    >
+      <div class="page-section__inner">
+        <h2 id="portfolio-heading">portfolio</h2>
+        <div class="portfolio__container">
+          <article class="portfolio__item">
+            <div class="portfolio__item-inner-container">
+              <div class="portfolio__image">
+                <a
+                  href="https://pokedex.jrobinson.dev"
+                  title="View Jarrod's Pokedex"
+                  ><img
+                    src="./images/portfolio/pokedex.webp"
+                    width="270"
+                    height="356"
+                    alt=""
+                  /></a
+                >
+              </div>
+              <div class="portfolio__details">
+                <h3><a href="https://pokedex.jrobinson.dev">Pokédex</a></h3>
+                <ul class="portfolio__skills">
+                  <li>
+                    <img
+                      src="./images/logos/react.svg"
+                      width="132"
+                      height="132"
+                      alt="React"
+                      title="React"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src="./images/logos/tanstack.webp"
+                      width="132"
+                      height="132"
+                      alt="TanStack Query"
+                      title="TanStack Query"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src="./images/logos/css3.webp"
+                      width="132"
+                      height="132"
+                      alt="New CSS Features"
+                      title="New CSS Features"
+                    />
+                  </li>
+                </ul>
+                <div class="portfolio__description">
+                  <p>
+                    Currently <strong>only works in Chrome / Edge</strong>. The
+                    goal of this project was to learn React. I liked the idea of
+                    it from a design perspective, and it was functionally simple
+                    enough to be a good first project in a framework. I plan to
+                    expand the functionality and make it 3D using only HTML /
+                    CSS.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer__container">
+      <div class="site-footer__inner">
+        Built with <a href="https://astro.build/">Astro</a>. Hosted on <a
+          href="https://www.netlify.com/">Netlify</a
+        >.
+        <br />
+        <a href="https://old.jrobinson.dev">Old website</a>.
+      </div>
+    </footer>
+  </main>
+</DefaultLayout>
