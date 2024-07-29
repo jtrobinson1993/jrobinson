@@ -45,7 +45,7 @@
     display: block;
     position: absolute;
     inset: 0;
-    opacity: .08;
+    opacity: .11;
     z-index: 0;
     background: linear-gradient(to right, var(--section-color-1), var(--section-color-2));
     transition: opacity .15s ease;
@@ -57,7 +57,7 @@
     position: absolute;
     inset: 0;
     z-index: 0;
-    background: linear-gradient(to bottom right, rgba(255,255,255,.04), rgba(255,255,255,0));
+    background: linear-gradient(to bottom right, rgba(255,255,255,.05), rgba(255,255,255,.01));
     transition: background .5s ease;
   }
 
@@ -77,8 +77,11 @@
 }
 
 .light .portfolio__item-inner-container {
+  &:before {
+    opacity: .2;
+  }
   &:after {
-    background: linear-gradient(to bottom right, rgba(255,255,255,.15), rgba(255,255,255,0));
+    background: linear-gradient(to bottom right, rgba(255,255,255,.15), rgba(255,255,255,.05));
   }
 }
 

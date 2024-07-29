@@ -27,7 +27,7 @@
     display: block;
     position: absolute;
     inset: 0;
-    opacity: .08;
+    opacity: .11;
     z-index: -1;
     background: linear-gradient(to right, var(--section-color-1), var(--section-color-2));
     transition: opacity .15s ease;
