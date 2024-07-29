@@ -12,6 +12,8 @@
   box-shadow: 1px 1px 15px rgba(0,0,0,0.125);
   border: 1px solid rgba(255,255,255,.12);
   overflow: hidden;
+  transition: box-shadow .5s ease;
+  transition: background-image .5s ease, border .5s ease;
 
   & h3 {
     font-size: clamp(1.75rem, calc(1rem + 2vw), 3rem);
@@ -26,7 +28,7 @@
 }
 
 .light .portfolio__item {
-  box-shadow: 1px 1px 15px rgba(0,0,0,0.033);
+  box-shadow: 1px 1px 15px rgba(0,0,0,0.067);
   background-image: radial-gradient(circle at top left, rgba(255, 255, 255, .5), rgba(255, 255, 255, 0) 20em);
   border: 1px solid rgba(255,255,255,.33);
 }
