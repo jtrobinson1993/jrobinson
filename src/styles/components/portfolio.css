@@ -78,7 +78,7 @@
 
 .light .portfolio__item-inner-container {
   &:before {
-    opacity: .2;
+    opacity: .18;
   }
   &:after {
     background: linear-gradient(to bottom right, rgba(255,255,255,.15), rgba(255,255,255,.05));
