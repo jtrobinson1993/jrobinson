@@ -39,8 +39,7 @@
 
 .light .portfolio__item {
   box-shadow: 1px 1px 15px rgba(0,0,0,0.067);
-  background-image: radial-gradient(circle at top left, rgba(255, 255, 255, .5), rgba(255, 255, 255, 0) 20em);
-  border: 1px solid rgba(255,255,255,.33);
+  background-image: radial-gradient(circle at top left, rgba(255, 255, 255, .67), rgba(255, 255, 255, 0) 20em);
 }
 
 .portfolio__item-inner-container {
